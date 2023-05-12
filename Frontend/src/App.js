@@ -6,9 +6,11 @@ import styles from "./App.module.css";
 import Protected from "./Components/Protected/Protected";
 import Error from "./Pages/Error/Error";
 import Login from "./Pages/Login/Login";
+import Signup from "./Pages/Signup/Signup";
+import { useSelector } from "react-redux";
 
 function App() {
-  const isAuth = false;
+  const isAuthenticated = useSelector((state) => state.user.auth);
   return (
     <div className={styles.container}>
       <BrowserRouter>
@@ -35,7 +37,7 @@ function App() {
               path="blogs"
               exact
               element={
-                <Protected isAuth={isAuth}>
+                <Protected isAuth={isAuthenticated}>
                   <div className={styles.main}>Blogs Page</div>
                 </Protected>
               }
@@ -45,7 +47,7 @@ function App() {
               path="submit-blog"
               exact
               element={
-                <Protected isAuth={isAuth}>
+                <Protected isAuth={isAuthenticated}>
                   <div className={styles.main}>Submit a Blog Page</div>
                 </Protected>
               }
@@ -64,7 +66,11 @@ function App() {
             <Route
               path="sign-up"
               exact
-              element={<div className={styles.main}>Sign-Up Page</div>}
+              element={
+                <div className={styles.main}>
+                  <Signup />
+                </div>
+              }
             />
 
             <Route
