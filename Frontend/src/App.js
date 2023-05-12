@@ -1,7 +1,59 @@
+import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home/Home";
+import Footer from "./Components/Footer/Footer";
+import styles from "./App.module.css";
+
 function App() {
   return (
-    <div>
-      <h1>Hello World!</h1>
+    <div className={styles.container}>
+      <BrowserRouter>
+        <div className={styles.layout}>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={
+                <div className={styles.main}>
+                  <Home />
+                </div>
+              }
+            />
+
+            <Route
+              path="crypto"
+              exact
+              element={<div className={styles.main}>Crypto Page</div>}
+            />
+
+            <Route
+              path="blogs"
+              exact
+              element={<div className={styles.main}>Blogs Page</div>}
+            />
+
+            <Route
+              path="submit-blog"
+              exact
+              element={<div className={styles.main}>Submit a Blog Page</div>}
+            />
+
+            <Route
+              path="log-in"
+              exact
+              element={<div className={styles.main}>Log-In Page</div>}
+            />
+
+            <Route
+              path="sign-up"
+              exact
+              element={<div className={styles.main}>Sign-Up Page</div>}
+            />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
