@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Loader from "../../Components/Loader/Loader";
-import { getCrypto } from "../../APIs/external";
 import styles from "./Crypto.module.css";
+import { getCrypto } from "../../APIs/external";
 
 function Crypto() {
   const [data, setData] = useState([]);

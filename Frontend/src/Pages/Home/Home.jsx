@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { getNews } from "../../APIs/external";
 import styles from "./Home.module.css";
 import Loader from "../../Components/Loader/Loader";
+import { getNews } from "../../APIs/external";
 
 function Home() {
   const [articles, setArticles] = useState([]);
@@ -34,7 +34,7 @@ function Home() {
             key={article.url}
             onClick={() => handleCardClick(article.url)}
           >
-            <img alt="gettingphoto" src={article.urlToImage} />
+            <img alt="NoPhoto" src={article.urlToImage} />
             <h3>{article.title}</h3>
           </div>
         ))}
