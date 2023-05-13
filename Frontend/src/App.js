@@ -13,10 +13,16 @@ import Blog from "./Pages/Blog/Blog";
 import SubmitBlog from "./Pages/SubmitBlog/SubmitBlog";
 import BlogDetails from "./Pages/BlogDetails/BlogDetails";
 import UpdateBlog from "./Pages/UpdateBlog/UpdateBlog";
+import useAutoLogin from "./Hooks/useAutoLogin";
+import Loader from "./Components/Loader/Loader";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.auth);
-  return (
+  const loading = useAutoLogin();
+
+  return loading ? (
+    <Loader text="..." />
+  ) : (
     <div className={styles.container}>
       <BrowserRouter>
         <div className={styles.layout}>
