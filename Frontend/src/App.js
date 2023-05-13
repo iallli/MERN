@@ -9,6 +9,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import { useSelector } from "react-redux";
 import Crypto from "./Pages/Crypto/Crypto";
+import Blog from "./Pages/Blog/Blog";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.user.auth);
@@ -43,7 +44,9 @@ function App() {
               exact
               element={
                 <Protected isAuth={isAuthenticated}>
-                  <div className={styles.main}>Blogs Page</div>
+                  <div className={styles.main}>
+                    <Blog />
+                  </div>
                 </Protected>
               }
             />
